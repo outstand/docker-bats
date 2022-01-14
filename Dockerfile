@@ -14,6 +14,11 @@ RUN echo "@edge http://dl-cdn.alpinelinux.org/alpine/edge/community/" >> /etc/ap
 		su-exec \
     docker-cli-compose@edge
 
+ENV COMPOSE_SWITCH_VERSION 1.0.4
+RUN curl -fL https://github.com/docker/compose-switch/releases/download/v${COMPOSE_SWITCH_VERSION}/docker-compose-linux-amd64 -o /usr/local/bin/compose-switch && \
+    chmod +x /usr/local/bin/compose-switch && \
+    ln -s /usr/local/bin/compose-switch /usr/local/bin/docker-compose
+
 # Install bats-support
 ENV BATS_SUPPORT_VERSION=0.3.0
 RUN mkdir -p /usr/local/lib/bats/bats-support \
