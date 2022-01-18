@@ -22,7 +22,7 @@ RUN curl -fL https://github.com/docker/compose-switch/releases/download/v${COMPO
 # Install bats-support
 ENV BATS_SUPPORT_VERSION=0.3.0
 RUN mkdir -p /usr/local/lib/bats/bats-support \
-    && curl -sSL https://github.com/ztombol/bats-support/archive/v${BATS_SUPPORT_VERSION}.tar.gz -o /tmp/bats-support.tgz \
+    && curl -sSL https://github.com/bats-core/bats-support/archive/v${BATS_SUPPORT_VERSION}.tar.gz -o /tmp/bats-support.tgz \
     && tar -zxf /tmp/bats-support.tgz -C /usr/local/lib/bats/bats-support --strip 1 \
     && printf 'source "%s"\n' "/usr/local/lib/bats/bats-support/load.bash" >> /usr/local/lib/bats/load.bash \
     && rm -rf /tmp/bats-support.tgz
@@ -30,7 +30,7 @@ RUN mkdir -p /usr/local/lib/bats/bats-support \
 # Install bats-assert
 ENV BATS_ASSERT_VERSION=0.3.0
 RUN mkdir -p /usr/local/lib/bats/bats-assert \
-    && curl -sSL https://github.com/ztombol/bats-assert/archive/v${BATS_ASSERT_VERSION}.tar.gz -o /tmp/bats-assert.tgz \
+    && curl -sSL https://github.com/bats-core/bats-assert/archive/v${BATS_ASSERT_VERSION}.tar.gz -o /tmp/bats-assert.tgz \
     && tar -zxf /tmp/bats-assert.tgz -C /usr/local/lib/bats/bats-assert --strip 1 \
     && printf 'source "%s"\n' "/usr/local/lib/bats/bats-assert/load.bash" >> /usr/local/lib/bats/load.bash \
     && rm -rf /tmp/bats-assert.tgz
